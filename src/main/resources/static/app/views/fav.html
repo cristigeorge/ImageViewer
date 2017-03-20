@@ -1,0 +1,11 @@
+<div id="columns"  >
+    <figure ng-repeat="x in images">
+        <a href={{x.url}}>
+        <img ng-src={{x.url}}>
+        </a>
+        <figcaption> {{x.title}}</figcaption>
+        <div align="right">
+            <button type="button" class="btn btn-danger" ng-click="deleteImage(x)">Remove </button>
+        </div>
+    </figure>
+</div>

@@ -1,0 +1,17 @@
+<h3 style="color: #ffffff">Search by title: </h3>
+<input type="text" class="form-control" ng-model="search.title">
+
+
+<div id="columns">
+	<figure ng-repeat="x in images  | filter:search ">
+		<a href={{x.url}}>
+
+		<img ng-src={{x.url}}>
+		</a>
+		<figcaption> {{x.title}}</figcaption>
+		<div align="right">
+			<button type="button" class="btn btn-primary" ng-click="addImage(x)">Add</button>
+			<button type="button" class="btn btn-danger" ng-click="deleteImage(x)">Remove</button>
+		</div>
+	</figure>
+</div>

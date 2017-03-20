@@ -1,0 +1,55 @@
+<style>
+.user {
+	font-weight: bold;
+}
+
+.logout {
+	cursor: pointer;
+	margin-left: 5px;
+}
+</style>
+
+<nav class="navbar navbar-default navbar-static-top">
+
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ui-sref="address">ImageDatabase </a>
+
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li ng-show="user.principal.role=='ADMIN'"><a ui-sref="users">Users</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li ng-show="user.principal.name"><a ui-sref="fav">Fav</a></li>
+			</ul>
+			<form class="navbar-form navbar-left">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" ng-model="subredit" ng-init="subredit=''">
+					<input type="text" class="form-control" placeholder="q" ng-model="query" ng-init="query=''" >
+				</div>
+				<button type="submit" class="btn btn-default" ui-sref="src" ng-click=populate()>
+					<span class="glyphicon glyphicon-search"></span> Search
+				</button>
+				<button type="submit" class="btn btn-danger" ng-click=deleteAll()>Delet nu stam la discutii</button>
+			</form>
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li ng-show="user.principal.name"><a> <span class="user">Hi,
+							{{user.principal.name}}</span> <span ng-click="logout()" href=""
+						class="logout">Logout</span>
+				</a></li>
+				<li ng-show="!user.principal.name"><a ui-sref="register">Register</a></li>
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+</nav>
